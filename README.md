@@ -1,4 +1,4 @@
-# LevelUp Quiz
+# LevelUp Quiz 📝
 
 ## Description
 
