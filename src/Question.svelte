@@ -1,5 +1,5 @@
 <script>
-  import { score } from './store';
+  import { score } from "./store";
   export let question;
   export let nextQuestion;
 
@@ -33,24 +33,10 @@
     isAnswered = true;
     isCorrect = correct;
     if (correct) {
-      score.update(val => val + 1);
+      score.update((val) => val + 1);
     }
   }
 </script>
-
-<style>
-    h5 {
-        color: red;
-    }
-
-    h5.isCorrect {
-        color: aquamarine;
-    }
-
-    .answer {
-      display: block;
-    }
-</style>
 
 <h3>{@html question.question}</h3>
 
@@ -59,17 +45,20 @@
     {#if isCorrect}
       You got it right!
     {:else}
-      You goofed up!
+      You goofed up! The correct answer was "{question.correct_answer}".
     {/if}
   </h5>
 {/if}
 
 {#each allAnswers as answer}
-  <button class="answer"
-    on:click={() => {
-      checkAnswer(answer.correct);
-    }}>{@html answer.answer}</button
-  >
+  {#if !isAnswered}
+    <button
+      class="answer"
+      on:click={() => {
+        checkAnswer(answer.correct);
+      }}>{@html answer.answer}</button
+    >
+  {/if}
 {/each}
 
 {#if isAnswered}
@@ -77,3 +66,17 @@
     <button on:click={nextQuestion}>Next Question</button>
   </div>
 {/if}
+
+<style>
+  h5 {
+    color: rgb(216, 7, 38);
+  }
+
+  h5.isCorrect {
+    color: rgb(4, 152, 103);
+  }
+
+  .answer {
+    display: block;
+  }
+</style>
