@@ -3,7 +3,7 @@ import ghpages from 'gh-pages';
 ghpages.publish(
     'public', // path to public directory
     {
-        branch: 'gh-pages',
+        branch: 'main',
         repo: 'https://github.com/grinninbarrett/levelup-quiz.git', // Update to point to your repository  
         user: {
             name: 'Tucker Barrett', // update to use your name
