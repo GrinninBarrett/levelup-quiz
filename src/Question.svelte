@@ -45,7 +45,7 @@
     {#if isCorrect}
       You got it right!
     {:else}
-      You goofed up! The correct answer was "{question.correct_answer}".
+      You goofed up! The correct answer was "{@html question.correct_answer}".
     {/if}
   </h5>
 {/if}
