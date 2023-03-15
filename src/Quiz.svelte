@@ -27,7 +27,7 @@
 
   async function getQuiz() {
     const res = await fetch(
-      "https://opentdb.com/api.php?amount=10&category=12&type=multiple"
+      "https://opentdb.com/api.php?amount=20&category=12&type=multiple"
     );
     const quiz = await res.json();
     console.log(quiz);
