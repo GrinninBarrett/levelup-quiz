@@ -36,6 +36,9 @@
 
   function nextQuestion() {
     activeQuestion++;
+    if (activeQuestion === 20) {
+      isModalOpen = true;
+    }
   }
 
   function resetQuiz() {
@@ -59,7 +62,9 @@
 
   <h3>My Score: {$score}</h3>
 
+  {#if activeQuestion < 20}
   <h4>Question #{questionNumber}</h4>
+  {/if}
 
   <div class="container">
     {#await quiz}
@@ -78,8 +83,13 @@
 
 {#if isModalOpen}
   <Modal on:close={resetQuiz}>
+    {#if $score > 4}
     <h2>You won!</h2>
     <p>Congratulations!</p>
+    {:else}
+    <h2>Sorry, you didn't do that well...</h2>
+    <p>Try again to see if you can get a better score!</p>
+    {/if}
     <button on:click={resetQuiz}>Start Over</button>
   </Modal>
 {/if}
